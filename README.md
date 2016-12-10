@@ -1,24 +1,26 @@
-# README
+# Authentication Demo app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Small authentication app built with Ruby on Rails to demonstrate login/logout mechanisms.
 
-Things you may want to cover:
+To view a live demo go to https://rails-authentication-demo.herokuapp.com/
 
-* Ruby version
+Dependancies
+---
 
-* System dependencies
+* Ruby 2.3.1
+* Rails 5.x
 
-* Configuration
+Build Steps
+---
 
-* Database creation
+* Clone the repository: `git clone git@github.com:asfourco/rails-authentication-demo.git`
+* Change into app directory: `cd rails-authentication-demo`
+* Install dependancies: `bundle install`
+* Make sure all tests pass: `rspec spec -f p`
+* Spin up a development server: `rails s`
+* Point your browser to `http://localhost:3000`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+License
+---
+Copyright 2016 Fadi Asfour  
+Licensed under the [MIT License](LICENSE)
