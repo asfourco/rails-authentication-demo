@@ -2,8 +2,8 @@ describe 'User' do
   let(:user) { User.create!(
     name:  'NewUserName', 
     email: 'test@domain.com',
-    password: 'somePassword!',
-    password_confirmation: 'somePassword!'
+    password: 'somePassword!1',
+    password_confirmation: 'somePassword!1'
     ) }
 
   describe 'Attributes' do
@@ -29,15 +29,25 @@ describe 'User' do
       expect(user.password.length).to be_between(8, 20).inclusive
     end
     
-    it 'is not valid with a password outside of 8 and 20 characters' do
+    it 'is not valid with a password with length 3' do
       user.password = 'asd'
       expect(user.password.length).to_not be_between(8, 20).inclusive
+    end
+    
+    it 'is not valid with a password with length >20' do
+      user.password = 'asd1234567890asd1234567890'
+      expect(user.password.length).to_not be_between(8, 20).inclusive
+    end
+    
+    it 'is not valid with a password that has no capitals or numbers' do
+      user.password = 'somePassword!'
+      expect(user).to_not be_valid
     end
   end
 
   describe 'Authentication' do
     it 'authenticates with the correct password' do
-      expect(user.authenticate('somePassword!')).to be_valid
+      expect(user.authenticate('somePassword!1')).to be_valid
     end
 
     it 'is not valid authentication with incorrect password' do

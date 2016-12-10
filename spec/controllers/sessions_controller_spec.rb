@@ -13,10 +13,10 @@ describe SessionsController, type: :controller do
 
   describe 'POST' do
     before (:example) do
-      User.create!(name: 'testy', email: 'best@test.com', password: 'besttest')
+      User.create!(name: 'testy', email: 'best@test.com', password: 'bestTest12')
     end
     it 'return http redirect for login into system' do
-      post :create, params: { email: 'best@test.com', password: 'besttest' }
+      post :create, params: { email: 'best@test.com', password: 'bestTest12' }
       expect(response).to have_http_status(:redirect)
     end
   end
