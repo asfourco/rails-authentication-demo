@@ -2,8 +2,11 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :name, presence: true
+
   validates :email, uniqueness: true, presence: true
-  validates :password, presence: true, length: { in: 8..20 }
+  # TODO: Validate email by sending an actual email to the user
+  
+  # validates :password, presence: true, length: { in: 8..20 }
   validate :password_complexity
   
   def password_complexity
@@ -11,6 +14,4 @@ class User < ApplicationRecord
       errors.add :password, 'must include at least one lowercase letter, one uppercase letter, and one digit'
     end
   end
-  
-  
 end

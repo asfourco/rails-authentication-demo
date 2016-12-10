@@ -72,6 +72,8 @@ Style/SpaceAroundOperators:
 
 Style/SpaceBeforeFirstArg:
     Enabled: true
+    Exclude:
+      - 'config/puma.rb'
 
 # Defining a method with parameters needs parentheses.
 Style/MethodDefParentheses:

@@ -25,21 +25,15 @@ ActiveRecord::Schema.define(version: 20161210053709) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "last_updated"
-    t.datetime "account_closed"
     t.datetime "last_login"
     t.datetime "last_failed_login"
-    t.datetime "password_changed"
     t.datetime "last_failed_password_reset"
-    t.datetime "verification_key_sent"
-    t.boolean  "is_login_allowed"
-    t.boolean  "requires_password_reset"
-    t.boolean  "is_account_verified"
-    t.integer  "failed_login_count"
-    t.integer  "failed_password_reset_count"
-    t.integer  "verification_purpose"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "requires_password_reset",     default: false
+    t.boolean  "is_account_verified",         default: false
+    t.integer  "failed_login_count",          default: 0
+    t.integer  "failed_password_reset_count", default: 0
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["updated_at"], name: "index_users_on_updated_at"
   end
