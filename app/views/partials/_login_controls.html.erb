@@ -1,0 +1,7 @@
+<% if current_user %>
+  <p class='lead'>Signed in as <%= current_user.name %> | <%= link_to 'Logout', logout_path %></p>
+<% else %>
+  <p class="lead">Go ahead, login!</p>
+  <p><%= link_to 'LOGIN', login_path, class: 'btn btn-lg btn-success', role: 'button' %></p>
+  <p><%= link_to 'Signup', register_path %></p>
+<% end %>

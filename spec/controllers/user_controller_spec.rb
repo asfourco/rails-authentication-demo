@@ -11,8 +11,8 @@ describe UserController, type: :controller do
       post :create, params: { user: {
         name: 'testyb', 
         email: 'testy@best.ca', 
-        password: 'testyb123', 
-        password_confirmation: 'testyb123' 
+        password: 'testTyb123', 
+        password_confirmation: 'testTyb123' 
         }
       }
       expect(response).to redirect_to(root_url)

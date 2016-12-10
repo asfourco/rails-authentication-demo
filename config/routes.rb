@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   
   get '/register' => 'user#new', as: :register
   post '/users' => 'user#create'
+  
+  get '/cat' => 'cat#show', as: :cat
 end
