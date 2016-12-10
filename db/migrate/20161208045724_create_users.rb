@@ -2,10 +2,9 @@ class CreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
       # Basic attributes
-      t.string :username
+      t.string :name
       t.string :email
-      t.string :hashed_password
-      t.string :salt
+      t.string :password_digest
 
       # timed attributes
       t.datetime :last_updated
