@@ -7,22 +7,16 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :password_digest
 
       # timed attributes
-      t.datetime :last_updated
-      t.datetime :account_closed
       t.datetime :last_login
       t.datetime :last_failed_login
-      t.datetime :password_changed
       t.datetime :last_failed_password_reset
-      t.datetime :verification_key_sent
 
       # status attributes
-      t.boolean :is_login_allowed
-      t.boolean :requires_password_reset
-      t.boolean :is_account_verified
-      t.integer :failed_login_count
-      t.integer :failed_password_reset_count
-      t.integer :verification_purpose
-        
+      t.boolean :requires_password_reset, default: false
+      t.boolean :is_account_verified, default: false
+      t.integer :failed_login_count, default: 0
+      t.integer :failed_password_reset_count, default: 0
+
       t.timestamps
     end
     

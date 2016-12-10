@@ -43,6 +43,7 @@ on_worker_boot do
   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
 end
 
+# Set default ruby webserver 
+rackup      DefaultRackup
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
-rackup      DefaultRackup
