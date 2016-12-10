@@ -48,7 +48,6 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-rubocop'
-  gem 'rb-fsevent' if `uname` =~ /Darwin/
   
   # irb colour output
   gem 'wirble'
