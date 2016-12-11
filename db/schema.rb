@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210053709) do
+ActiveRecord::Schema.define(version: 20161211214721) do
 
   create_table "sessions", force: :cascade do |t|
     t.string   "session_id", null: false
@@ -28,12 +28,17 @@ ActiveRecord::Schema.define(version: 20161210053709) do
     t.datetime "last_login"
     t.datetime "last_failed_login"
     t.datetime "last_failed_password_reset"
-    t.boolean  "requires_password_reset",     default: false
-    t.boolean  "is_account_verified",         default: false
-    t.integer  "failed_login_count",          default: 0
-    t.integer  "failed_password_reset_count", default: 0
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.boolean  "requires_password_reset",         default: false
+    t.boolean  "is_account_verified",             default: false
+    t.integer  "failed_login_count",              default: 0
+    t.integer  "failed_password_reset_count",     default: 0
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.boolean  "email_confirmed"
+    t.string   "confirm_token"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["updated_at"], name: "index_users_on_updated_at"
   end
