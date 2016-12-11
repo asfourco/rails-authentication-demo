@@ -1,17 +1,26 @@
 <h1>New User</h1>
-<p class="lead">Please fill in the following information</p>
-<%= form_for :user, class:'form-inline', url: '/users', html: {class: 'form-horizontal'}  do |form| %>
-  <div class="form-group">
-    <%= form.text_field :name, class: 'form-control', placeholder: 'Full Name' %>
-  </div>
-  <div class="form-group">
+<p class='lead'>Please fill in the following information</p>
+<%= form_for @user, url: user_create_url, html: {class: 'form-horizontal'}  do |form| %>
+  <%= render 'partials/form_error_messages', object: form.object %>
+  <div class='form-group'>
+  <div class='input-group'>
+    <span class='input-group-addon' id='username_addon'><span class='glyphicon glyphicon-user'></span></span>
+    <%= form.text_field :name, class: 'form-control', placeholder: 'Full Name', 'aria-describedby': 'username_addon' %>
+  </div></div>
+  <div class='form-group'>
+    <div class='input-group'>
+      <span class='input-group-addon' id='username_addon'>@</span>
     <%= form.text_field :email, class: 'form-control', placeholder: 'Email address' %>
-  </div>
-  <div class="form-group">
+  </div></div>
+  <div class='form-group'>
+    <div class='input-group'>
+      <span class='input-group-addon' id='username_addon'><span class='glyphicon glyphicon-lock'></span></span>
     <%= form.password_field :password , class: 'form-control', placeholder: 'Password' %>
-  </div>
-  <div class="form-group">
+  </div></div>
+  <div class='form-group'>
+    <div class='input-group'>
+      <span class='input-group-addon' id='username_addon'><span class='glyphicon glyphicon-lock'></span></span>
     <%= form.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm your password' %>
-  </div>  
+  </div></div>  
   <%= form.submit 'Register' , class: 'btn btn-lg btn-primary'%>
 <% end %>
