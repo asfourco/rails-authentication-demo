@@ -7,8 +7,8 @@ class PasswordController < ApplicationController
     if user
       user.reset_token
       UserMailer.reset_password(user).deliver
-      redirect_to root_path
     end
+    redirect_to root_path
   end
   
   # reset password directed here from user reset password email
