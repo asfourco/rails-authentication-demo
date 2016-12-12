@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'system@rails-authentication-demo.herokuapp.com'
+  default from: 'Rails Authentication Demo <no-reply@rails-authentication-demo.herokuapp.com>'
   
   def registration_confirmation(user)
     @user = user

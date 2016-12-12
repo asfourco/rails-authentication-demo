@@ -7,7 +7,7 @@ class UserController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       UserMailer.registration_confirmation(@user).deliver
-      flash[:success] = 'Please confirm your email address to continue'
+      flash[:success] = 'Please confirm your email address by clicking the link int the email we just sent you'
       redirect_to root_path
     else
       render 'new'
@@ -18,10 +18,10 @@ class UserController < ApplicationController
     user = User.find_by(confirm_token: params[:token])
     if user
       user.email_activate
-      flash[:success] = 'Your email has been confirmed, please login to continue'
+      flash[:success] = 'Your account has been confirmed, please login to continue'
       redirect_to login_path
     else
-      flash[:danger] = 'Sorry, this email is not registered'
+      flash[:danger] = 'Apologies, but we can not confirm you account'
       redirect_to root_path
     end
   end

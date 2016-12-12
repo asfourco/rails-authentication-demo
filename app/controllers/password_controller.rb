@@ -18,7 +18,7 @@ class PasswordController < ApplicationController
     @user = User.find_by(reset_password_token: @token)
     # if there is no such token or it has expired then go back to root
     if @user.blank? || (@user.reset_password_token_expires_at < now)
-      flash[:danger] = 'Invalid token'
+      flash[:danger] = 'Apologies, but it seems that this reset url is invalid. Please request a new password reset'
       redirect_to root_path
     end
   end

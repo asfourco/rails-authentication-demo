@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    now = DateTime.now.utc.to_s(:db)
     user = User.find_by(email: params[:email])
     isUserValid(user)
   end
@@ -31,7 +30,7 @@ class SessionsController < ApplicationController
     def isUserAuthenticated(user)
       now = DateTime.now.utc.to_s(:db)
       if user.authenticate(params[:password])
-        isUserConfirmed(user)
+        isUserConfirmed(user, now)
       else
         user.last_failed_login = now
         user.failed_login_count += 1
@@ -41,8 +40,7 @@ class SessionsController < ApplicationController
       end
     end
     
-    def isUserConfirmed(user)
-      now = DateTime.now.utc.to_s(:db)
+    def isUserConfirmed(user, now)
       if user.email_confirmed
         user.last_login = now
         user.save
@@ -50,7 +48,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         redirect_to cat_path
       else
-        flash[:warning] = 'Please activate your account'
+        flash[:warning] = 'Your email address has not been confirmed. Please confirm your email address clicking the link in the email we sent you'
         redirect_to root_path
       end
     end
