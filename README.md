@@ -2,8 +2,6 @@
 
 Small authentication app built with Ruby on Rails to demonstrate login/logout mechanisms.
 
-To view a live demo go to https://rails-authentication-demo.herokuapp.com/
-
 Dependancies
 ---
 
